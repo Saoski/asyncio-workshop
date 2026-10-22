@@ -23,12 +23,11 @@ def compute_the_answer_to_the_universe():
 
 
 async def async_main():
-    await asyncio.gather(
-        *[
-            asyncio.create_task(async_compute_the_answer_to_the_universe())
+    async with asyncio.TaskGroup() as tg:
+        [
+            tg.create_task(async_compute_the_answer_to_the_universe())
             for _ in range(3)
         ]
-    )
 
 
 def main():
