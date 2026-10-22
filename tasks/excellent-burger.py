@@ -18,7 +18,7 @@ async def make_cheeseburger():
 
 
 async def main():
-    await asyncio.gather(*[asyncio.create_task(make_cheeseburger()) for _ in range(3)])
+    await asyncio.gather(*[make_cheeseburger() for _ in range(3)])
     print("Burgers Done!")
 
 
